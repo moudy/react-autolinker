@@ -2,10 +2,20 @@
   "name": "react-autolinker",
   "version": "1.0.0",
   "description": "React Component that wraps Autolinker.js",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "babel src --out-dir lib"
   },
   "author": "Moudy <moudy.elkammash@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "autolinker": "^0.19.0"
+  },
+  "devDependencies": {
+    "babel": "^5.0.0"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0"
+  }
 }
