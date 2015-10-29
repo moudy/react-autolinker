@@ -1,0 +1,11 @@
+{
+  "name": "react-autolinker",
+  "version": "1.0.0",
+  "description": "React Component that wraps Autolinker.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Moudy <moudy.elkammash@gmail.com>",
+  "license": "ISC"
+}
