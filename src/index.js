@@ -25,7 +25,7 @@ export default class ReactAutolinker extends React.Component {
     }});
 
     let _text = text;
-    const childern = [];
+    const children = [];
     for(let tag of tags) {
       const parts = _text.split(tag.attrs.href);
       if (tag.attrs && tag.attrs.class) {
@@ -33,12 +33,12 @@ export default class ReactAutolinker extends React.Component {
         delete tag.attrs.class;
       }
       tag.attrs.key = `${tag.attrs.href}-${tags.indexOf(tag)}`
-      childern.push(parts.shift());
-      childern.push(renderLink(tag));
+      children.push(parts.shift());
+      children.push(renderLink(tag));
       _text = parts.join(tag.attrs.href);
     }
 
-    const content = childern.length ? childern : text;
+    const content = children.length ? children : text;
     return React.createElement('div', this.props, content);
   }
 }
