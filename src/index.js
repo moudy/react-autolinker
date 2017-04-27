@@ -27,7 +27,8 @@ export default class ReactAutolinker extends React.Component {
     let _text = text;
     const children = [];
     for(let tag of tags) {
-      const parts = _text.split(tag.attrs.href);
+      const splitText = _text.includes(tag.attrs.href) ? tag.attrs.href : tag.innerHtml;
+      const parts = _text.split(splitText);
       if (tag.attrs && tag.attrs.class) {
         tag.attrs.className = tag.attrs.class;
         delete tag.attrs.class;
@@ -39,7 +40,11 @@ export default class ReactAutolinker extends React.Component {
     }
 
     const content = children.length ? children : text;
-    return React.createElement('div', this.props, content);
+    const props = { ...this.props };
+    for (let prop of ['text', 'options', 'renderLink']) {
+      delete props[prop];
+    }
+    return React.createElement('div', props, content);
   }
 }
 
