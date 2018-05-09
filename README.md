@@ -15,6 +15,9 @@ const text = 'Foo http://google.com bar http:/twitter.com baz http//google.com'
 const options = {className: 'foo'}
 <ReactAutolinker text={text} options={options} />
 
+// With custom tag name for the component (default is div)
+<ReactAutolinker text={text} tagName='p' />
+
 // Custom per link render (default implementation shown)
 const renderLink = (tag) => React.createElement(tag.tagName, tag.attrs, tag.innerHtml)
 <ReactAutolinker text={text} renderLink={renderLink} />
