@@ -5,15 +5,17 @@ import PropTypes from "prop-types";
 export default class ReactAutolinker extends React.Component {
   static propTypes = {
     options: PropTypes.object,
-    renderLink: PropTypes.func
+    renderLink: PropTypes.func,
+    tagName: PropTypes.string
   };
   static defaultProps = {
     options: {},
     renderLink: tag =>
-      React.createElement(tag.tagName, tag.attrs, tag.innerHtml)
+      React.createElement(tag.tagName, tag.attrs, tag.innerHtml),
+    tagName: 'div'
   };
   render() {
-    const { options, text, renderLink } = this.props;
+    const { options, text, renderLink, tagName } = this.props;
 
     const tags = [];
     Autolinker.link(text, {
@@ -44,9 +46,9 @@ export default class ReactAutolinker extends React.Component {
 
     const content = children.length ? children : text;
     const props = { ...this.props };
-    for (let prop of ["text", "options", "renderLink"]) {
+    for (let prop of ["text", "options", "renderLink", "tagName"]) {
       delete props[prop];
     }
-    return React.createElement("div", props, content);
+    return React.createElement(tagName, props, content);
   }
 }
