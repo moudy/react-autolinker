@@ -1,6 +1,6 @@
 {
   "name": "react-autolinker",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "React Component that wraps Autolinker.js",
   "repository": "https://github.com/moudy/react-autolinker",
   "main": "lib/index.js",
