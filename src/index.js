@@ -43,12 +43,12 @@ export default class ReactAutolinker extends React.Component {
       children.push(renderLink(tag));
       _text = parts.join(tag.attrs.href);
     }
+    children.push(_text);
 
-    const content = children.length ? children : text;
     const props = { ...this.props };
     for (let prop of ["text", "options", "renderLink", "tagName"]) {
       delete props[prop];
     }
-    return React.createElement(tagName, props, content);
+    return React.createElement(tagName, props, children);
   }
 }
